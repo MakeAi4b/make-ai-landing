@@ -105,6 +105,29 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing
 @media(max-width:1060px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.cards{grid-template-columns:1fr}}
 
+/* PAINS + PRINCIPLES */
+.pn-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.pn{background:var(--card);border-radius:20px;padding:clamp(22px,2.6vw,32px);display:flex;flex-direction:column;gap:20px;min-width:0}
+.pn q{quotes:none;font-family:var(--f-serif);font-style:italic;font-weight:500;font-size:clamp(24px,2.4vw,31px);line-height:1.05;color:var(--cream);letter-spacing:-.01em}
+.pn .if{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+.pn .if b{font:500 11px/1 var(--f-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gray)}
+.pn .if p{font-size:15px;color:var(--primary);line-height:1.5}
+.pn-cta{margin-top:8px;border-radius:20px;border:1px solid var(--line);padding:clamp(22px,3vw,36px);display:flex;flex-wrap:wrap;gap:18px 32px;align-items:center;justify-content:space-between}
+.pn-cta p{font-size:clamp(18px,2vw,24px);letter-spacing:-.02em;color:var(--cream);max-width:34em;line-height:1.25}
+.now{margin-top:clamp(48px,7vw,88px)}
+.now-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:28px}
+.nw{background:var(--card3);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.nw h3{font-weight:500;font-size:18px;letter-spacing:-.02em;line-height:1.2;color:var(--cream)}
+.nw p{font-size:14px;color:var(--gray);line-height:1.5}
+.budget{display:flex;gap:12px;align-items:flex-start;border:1px solid rgba(225,224,204,.45);background:rgba(225,224,204,.07);border-radius:14px;padding:16px 18px;color:var(--primary)}
+.budget svg{flex:none;width:22px;height:22px;margin-top:1px;color:var(--cream)}
+.budget p{font-size:14.5px;line-height:1.5}
+.budget b{color:var(--cream);font-weight:600}
+.p-main .budget{background:rgba(0,0,0,.07);border-color:rgba(0,0,0,.4);color:#000}
+.p-main .budget svg,.p-main .budget b{color:#000}
+@media(max-width:980px){.pn-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.now-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.pn-grid,.now-grid{grid-template-columns:1fr}}
+
 /* SPEC (детально): послідовний шлях з етапів */
 .chips li{white-space:normal;line-height:1.3;background:rgba(255,255,255,.03)}
 .flow{margin-top:clamp(28px,4vw,48px)}
@@ -225,6 +248,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
     <div class="hero-shade"></div>
     <nav class="nav" aria-label="Розділи">
       <a href="#about">Про послугу</a>
+      <a href="#pains">Ваші задачі</a>
       <a href="#inside">Що входить</a>
       <a href="#spec">Детально</a>
       <a href="#funnel">Воронка</a>
@@ -235,7 +259,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
       <h1 class="wordmark" aria-label="make ai"><span><b>make</b></span><span><b>ai<sup>*</sup></b></span></h1>
       <div class="hero-side">
         <span class="tag">Автоматизація SMM-частини вашого проєкту</span>
-        <p>Одна послуга: стратегія, контент щомісяця, дизайн-система у Figma, яка залишається у вас і воронка, що вчиться на реальних заявках вашої аудиторії.</p>
+        <p>Одна послуга: стратегія, контент щомісяця, дизайн-система у Figma, яка залишається у вас, воронка, що вчиться на реальних заявках, та таргет, який веде в неї людей.</p>
         <a class="pill" href="https://t.me/your_username">Отримати розбір <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
       </div>
     </div>
@@ -250,11 +274,64 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
   </div>
 </section>
 
+<section class="sec" id="pains">
+  <div class="in">
+    <div class="feat-head">
+      <span class="label">Знайомо?</span>
+      <h2 class="h2">Якщо ви впізнаєте себе <em class="s">хоча б у двох пунктах</em>, нам є про що поговорити</h2>
+      <p style="color:var(--gray);max-width:60ch;font-size:16px">Так буває майже в кожного, хто водночас веде бізнес і Instagram. Ось що, на нашу думку, можна змінити.</p>
+    </div>
+    <div class="pn-grid">
+      <div class="pn">
+        <q>«Постимо регулярно, а заявок немає»</q>
+        <div class="if"><b>А якби</b><p>Кожен допис мав би вести до дії: кодове слово, корисний матеріал, розмова. Тоді Instagram перестає бути вітриною й починає приводити людей.</p></div>
+      </div>
+      <div class="pn">
+        <q>«Не знаю, що публікувати»</q>
+        <div class="if"><b>А якби</b><p>Рубрикатор і контент-план на місяць уже лежать готові, а вам лишається лише погодити. Тема, формат і мета кожного допису зрозумілі заздалегідь.</p></div>
+      </div>
+      <div class="pn">
+        <q>«Щоразу виходить по-різному»</q>
+        <div class="if"><b>А якби</b><p>Єдина дизайн-система робить акаунт упізнаваним, а Figma-файл залишається у вас. Ви більше не залежите від одного дизайнера.</p></div>
+      </div>
+      <div class="pn">
+        <q>«Бот є, а толку немає»</q>
+        <div class="if"><b>А якби</b><p>Воронка фіксує, що сталося після кожного дотику та підлаштовується. Ви бачите, які теми й формати справді дають розмови.</p></div>
+      </div>
+      <div class="pn">
+        <q>«Немає часу на Instagram»</q>
+        <div class="if"><b>А якби</b><p>SMM-частину проєкту ми беремо на себе: стратегія, контент, воронка, звіт. Вам залишається відповідати на заявки.</p></div>
+      </div>
+      <div class="pn">
+        <q>«Реклама з'їдає бюджет»</q>
+        <div class="if"><b>А якби</b><p>Таргет підключається до воронки, яка вже вміє перетворювати людей на заявки. Бюджет окремий, а суму ви контролюєте самі.</p></div>
+      </div>
+    </div>
+    <div class="pn-cta">
+      <p>Розкажіть, що з цього про вас. Ми подивимося ваш акаунт і запропонуємо, з чого почати.</p>
+      <a class="pill" href="https://t.me/your_username">Обговорити свій акаунт <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+    </div>
+
+    <div class="now">
+      <div class="feat-head" style="margin-bottom:0">
+        <span class="label">На що ми спираємось</span>
+        <h2 class="h2">Те, що зараз справді працює в Instagram</h2>
+      </div>
+      <div class="now-grid">
+      <div class="nw"><h3>Зберігають і пересилають, а не лише лайкають</h3><p>Instagram найсильніше підсилює дописи, які дивляться до кінця, зберігають і надсилають друзям у директ. Тому ми будуємо контент під збереження й пересилання.</p></div>
+      <div class="nw"><h3>Живий голос експерта, а не безлике AI-наповнення</h3><p>AI допомагає нам працювати швидше, але тексти й меседжі тримаємо на вашій експертизі. Платформа дедалі менше винагороджує типовий згенерований контент.</p></div>
+      <div class="nw"><h3>Кодове слово віддає щось корисне</h3><p>Автоматична відповідь у директі працює тоді, коли людина справді отримує матеріал: чек-лист, гайд, шаблон. Посилання на головну сторінку лише додає тертя.</p></div>
+      <div class="nw"><h3>Карусель для збережень, Reels для охоплення</h3><p>Каруселі зараз добре працюють на збереження й перегляди, а Reels приводять нову аудиторію. Ми поєднуємо їх за завданням рубрики.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="sec feat" id="inside">
   <div class="in">
     <div class="feat-head">
       <h2 class="h2">Усе, що входить в одну послугу</h2>
-      <h2 class="h2 g">Чотири частини, один щомісячний цикл</h2>
+      <h2 class="h2 g">Усе в одному щомісячному циклі</h2>
     </div>
 
     <div class="banner">
@@ -304,6 +381,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
           <li>База результатів по темах і форматах</li>
           <li>Підлаштування контенту й повідомлень</li>
           <li>Звіт і корективи щомісяця</li>
+          <li>Таргет під воронку (бюджет окремо)</li>
         </ul>
         <a class="more" href="#funnel">Детальніше <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       </article>
@@ -398,13 +476,14 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
       </div>
       <div class="stg">
         <div class="rail"><span class="dot">8</span></div>
-        <div class="sc opt">
-          <div><span class="ph">За потреби</span><h3>Таргет</h3><p class="d">Якщо потрібні заявки швидше, підключаємо платний трафік. Налаштування й ведення робить наш партнер.</p></div>
+        <div class="sc">
+          <div><span class="ph">Прискорення</span><h3>Таргет</h3><p class="d">Щоб у воронку швидше приходили люди, підключаємо платний трафік. Налаштування й ведення таргету входять у послугу, їх робить наш партнер.</p></div>
           <div><span class="k">Що ми робимо</span><ul class="chips"><li>Налаштування реклами</li><li>Ведення кампаній</li><li>Зв'язок реклами з воронкою й аналітикою</li></ul></div>
           <div class="cols">
             <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>Швидший приплив людей у воронку, яка вже вміє їх вести</li><li>Рекламні цифри в тому ж звіті</li></ul></div>
-            <div class="you"><span class="k">Що потрібно від вас</span><p>Рекламний бюджет: його ви вносите окремо, напряму в рекламний кабінет.</p></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Доступ до рекламного кабінету й погодження рекламних матеріалів.</p></div>
           </div>
+          <div class="budget"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg><p><b>Рекламний бюджет не входить у вартість послуги.</b> Ви вносите його окремо, напряму в рекламний кабінет та самі вирішуєте, яку суму витрачати.</p></div>
         </div>
       </div>
     </div>
@@ -491,14 +570,16 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
           <li>Самонавчання воронки й база результатів</li>
           <li>Аналітика й місячний звіт</li>
           <li>Корективи за цифрами</li>
+          <li>Налаштування й ведення таргету</li>
         </ul>
+        <div class="budget"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 16.5v.5"/></svg><p><b>Рекламний бюджет оплачується окремо.</b> Він не входить у вартість послуги.</p></div>
         <a class="pill" href="https://t.me/your_username">Отримати розбір <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
       </div>
       <div class="p-side">
         <h3>Точна сума залежить від обсягу контенту й ніші</h3>
         <ul>
           <li>Розбір акаунта<span>Безкоштовно й без зобов'язань.</span></li>
-          <li>Таргет<span>Налаштування й ведення партнером, рекламний бюджет оплачується окремо.</span></li>
+          <li>Таргет<span>Налаштування й ведення входять у послугу. Рекламний бюджет у вартість не входить і вноситься окремо.</span></li>
           <li>Дизайн-система<span>Входить у послугу й передається вам файлами.</span></li>
         </ul>
         <p>Після розбору називаємо підсумкову вартість і склад.</p>
@@ -514,7 +595,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
       <details><summary>Дизайн-система справді переходить до мене?</summary><p>Так. Ви отримуєте Figma-файл із шаблонами, хедерами, фонами, палітрою й шрифтами та коротку інструкцію. Користуватися можна без нас.</p></details>
       <details><summary>Що означає «воронка вчиться»?</summary><p>Ми фіксуємо, які теми, формати й формулювання приводять до кодового слова, діалогу та заявки і вносимо це в базу. Наступний контент і повідомлення воронки будуються з урахуванням цих даних. Це не разове налаштування, а цикл, що повторюється.</p></details>
       <details><summary>Коли будуть перші результати?</summary><p>Запуск займає близько трьох тижнів. Перші висновки по воронці з'являються, коли накопичуються дані, зазвичай після першого місяця роботи. Точніше скажемо на розборі, бо це залежить від розміру акаунта й ніші.</p></details>
-      <details><summary>Рекламний бюджет входить у ціну?</summary><p>Ні. Якщо підключаємо таргет, налаштування й ведення робить партнер, а бюджет на рекламу ви вносите окремо, напряму в рекламний кабінет.</p></details>
+      <details><summary>Рекламний бюджет входить у ціну?</summary><p>Ні. Налаштування й ведення таргету входять у послугу, а бюджет на саму рекламу ви вносите окремо, напряму в рекламний кабінет. Суму визначаєте ви.</p></details>
       <details><summary>Що я роблю зі свого боку?</summary><p>Даєте доступ до матеріалів, відповідаєте на питання про вашу послугу й передаєте заявки, що надходять із воронки, у роботу. Усе інше ми беремо на себе.</p></details>
     </div>
   </div>
