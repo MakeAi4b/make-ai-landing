@@ -81,7 +81,6 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing
   .wordmark,.hero-side{grid-column:1/-1}
   .wordmark{font-size:26vw}
   .nav a{padding:9px 12px}
-  .nav a:nth-child(n+6){display:none}
 }
 
 /* ABOUT */
@@ -284,7 +283,8 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 .js .now-body.open .nw:nth-child(4){transition-delay:.95s}
 @media(prefers-reduced-motion:reduce){.js .now-body,.js .now-inner,.js .now-inner>.h2,.js .nw,.now-toggle i{transition:none!important}}
 @media(max-width:1100px){.nav{gap:6px}.nav a{padding:10px 12px;font-size:12px}}
-@media(max-width:560px){.nav a:nth-child(n+4){display:none}.nav a{padding:9px 11px}}
+@media(max-width:860px){.nav{flex-wrap:wrap;gap:6px;width:calc(100% - 24px)}.nav a{font-size:12px;padding:9px 12px}}
+@media(max-width:420px){.nav{gap:5px}.nav a{font-size:11.5px;padding:9px 10px}}
 /* поступна поява блоків при прокрутці */
 .js .rv{opacity:0;transform:translateY(34px);transition:opacity .9s ease,transform 1s cubic-bezier(.16,1,.3,1)}
 .js .rv.vis{opacity:1;transform:none}
@@ -296,14 +296,13 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
   .hero-bg,.banner::before,.final::before{animation:none}
   .nav a,.cycle span,.chips li{backdrop-filter:none;-webkit-backdrop-filter:none;background:rgba(18,14,12,.85)}
   .hero-box{min-height:clamp(560px,86svh,760px)}
-  .hero-grid{padding-top:96px}
+  .hero-grid{padding-top:120px}
   .wordmark{font-size:27vw}
   .sec{padding-block:clamp(40px,9vw,64px)}
   .about-card{padding:32px 20px}
   .btn,.pill{min-height:48px}
   .faq summary{padding-block:2px;min-height:44px;align-items:center}
   .now-toggle{min-height:48px}
-  .nav a{padding:11px 12px}
   .fc .more{padding-block:10px}
 }
 @media(max-width:420px){
