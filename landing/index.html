@@ -324,7 +324,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 <div class="hero">
   <div class="hero-box">
     <div class="hero-bg"></div>
-    <video id="heroVideo" loop muted playsinline preload="none" aria-hidden="true" data-src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260405_170732_8a9ccda6-5cff-4628-b164-059c500a2b41.mp4"></video>
+    <video id="heroVideo" loop muted playsinline preload="none" aria-hidden="true" data-src-desktop="hero-desktop.mp4" data-src-mobile="hero-mobile.mp4"></video>
     <div class="hero-noise"></div>
     <div class="hero-shade"></div>
     <nav class="nav" aria-label="Розділи">
@@ -752,12 +752,12 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
   var v=document.getElementById('heroVideo');
   if(!v)return;
   var c=navigator.connection||{};
-  var ok=window.matchMedia('(min-width: 861px)').matches
-    &&!window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    &&!c.saveData&&!/(^|-)2g$/.test(c.effectiveType||'')&&c.effectiveType!=='3g';
+  var ok=!window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    &&!c.saveData&&!/(^|-)2g$/.test(c.effectiveType||'');
   if(!ok)return;
+  var mobile=window.matchMedia('(max-width: 860px)').matches;
   function start(){
-    v.src=v.getAttribute('data-src');
+    v.src=v.getAttribute(mobile?'data-src-mobile':'data-src-desktop');
     v.addEventListener('playing',function(){v.classList.add('on')},{once:true});
     var pr=v.play();if(pr&&pr.catch)pr.catch(function(){});
   }
