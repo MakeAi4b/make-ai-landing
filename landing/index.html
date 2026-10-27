@@ -58,7 +58,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing
   background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>")}
 .hero-shade{position:absolute;inset:0;z-index:-1;background:linear-gradient(to bottom,rgba(0,0,0,.3),transparent 45%,rgba(0,0,0,.65))}
 .nav{position:absolute;top:clamp(14px,2vw,24px);left:50%;transform:translateX(-50%);display:flex;flex-wrap:wrap;justify-content:center;gap:8px;width:calc(100% - 32px);max-width:760px;z-index:2}
-.nav a,.cycle span,.row li{font:500 clamp(12px,1vw,14px)/1 var(--f-sans);padding:11px 16px;border-radius:99px;background:rgba(10,8,7,.55);border:1px solid var(--line);color:var(--cream);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-decoration:none;white-space:nowrap;transition:background .2s,border-color .2s}
+.nav a,.cycle span,.chips li{font:500 clamp(12px,1vw,14px)/1 var(--f-sans);padding:11px 16px;border-radius:99px;background:rgba(10,8,7,.55);border:1px solid var(--line);color:var(--cream);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);text-decoration:none;white-space:nowrap;transition:background .2s,border-color .2s}
 .nav a:hover{background:rgba(225,224,204,.16);border-color:rgba(225,224,204,.4)}
 .hero-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(12px,2vw,28px);align-items:end;padding:clamp(24px,3vw,48px);padding-top:120px}
 .wordmark{grid-column:span 8;font-weight:500;color:var(--cream);font-size:clamp(64px,16vw,230px);line-height:.85;letter-spacing:-.07em;margin:0;display:flex;gap:.12em;flex-wrap:wrap;min-width:0}
@@ -91,7 +91,7 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing
 .feat-head .h2{font-size:clamp(22px,3vw,40px)}
 .banner{position:relative;border-radius:16px;overflow:hidden;padding:clamp(24px,4vw,44px);margin-bottom:8px;display:flex;flex-direction:column;gap:22px;min-height:260px;justify-content:center;align-items:center;text-align:center;isolation:isolate;background:#14100d}
 .banner::before{content:"";position:absolute;inset:-20%;z-index:-1;background:radial-gradient(50% 70% at 85% 20%,rgba(236,170,104,.5),transparent 65%),radial-gradient(40% 60% at 10% 100%,rgba(140,70,60,.5),transparent 65%);animation:drift 18s ease-in-out infinite alternate}
-.banner h3{font-weight:400;font-size:clamp(24px,3.2vw,40px);letter-spacing:-.03em;line-height:1.05;color:var(--cream);max-width:18em;margin-inline:auto}
+.banner h3{font-weight:400;font-size:clamp(24px,3.2vw,40px);letter-spacing:-.03em;line-height:1.05;color:var(--cream);max-width:none;margin-inline:auto;text-wrap:balance}
 .cycle{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .fc{background:var(--card3);border-radius:16px;padding:26px 22px;display:flex;flex-direction:column;gap:18px;min-width:0}
@@ -105,22 +105,32 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing
 @media(max-width:1060px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:600px){.cards{grid-template-columns:1fr}}
 
-/* SPEC (детально) */
-.spec{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.6fr);gap:clamp(24px,5vw,72px)}
-.spec-side{display:flex;flex-direction:column;gap:20px;position:sticky;top:24px;align-self:start}
-.spec-side p{color:var(--gray);max-width:36ch;font-size:15.5px}
-.rows{display:flex;flex-direction:column}
-.row{display:grid;grid-template-columns:48px minmax(0,1fr);gap:8px 16px;padding-block:28px;border-top:1px solid var(--line)}
-.row:last-child{border-bottom:1px solid var(--line)}
-.row .n{font:500 12px/1.9 var(--f-sans);color:var(--gray2);letter-spacing:.1em}
-.row h3{font-weight:500;font-size:clamp(20px,2vw,26px);letter-spacing:-.03em;color:var(--cream);line-height:1.15}
-.row .d{color:var(--gray);font-size:15px;margin-top:8px;max-width:58ch}
-.row ul{margin-top:16px;display:flex;flex-wrap:wrap;gap:8px}
-.row li{white-space:normal;line-height:1.3;background:rgba(255,255,255,.03)}
-.row .out{margin-top:16px;font-size:13.5px;color:var(--gray);border-left:1px solid var(--cream);padding-left:12px}
-.row .out b{color:var(--cream);font-weight:600}
-@media(max-width:900px){.spec{grid-template-columns:1fr}.spec-side{position:static}}
-@media(max-width:560px){.row{grid-template-columns:1fr}}
+/* SPEC (детально): послідовний шлях з етапів */
+.chips li{white-space:normal;line-height:1.3;background:rgba(255,255,255,.03)}
+.flow{margin-top:clamp(28px,4vw,48px)}
+.stg{display:grid;grid-template-columns:48px minmax(0,1fr);gap:clamp(12px,2vw,24px)}
+.rail{display:flex;flex-direction:column;align-items:center}
+.rail .dot{width:44px;height:44px;flex:none;border-radius:50%;background:var(--primary);color:#000;display:grid;place-items:center;font:600 15px/1 var(--f-sans)}
+.rail::after{content:"";flex:1;width:1px;margin-block:8px;background:var(--line)}
+.stg:last-child .rail::after{display:none}
+.sc{background:var(--card);border-radius:20px;padding:clamp(20px,3vw,32px);margin-bottom:12px;display:flex;flex-direction:column;gap:20px;min-width:0}
+.sc .ph{font:500 11px/1 var(--f-sans);letter-spacing:.14em;text-transform:uppercase;color:var(--gray)}
+.sc h3{font-weight:500;font-size:clamp(22px,2.4vw,30px);letter-spacing:-.03em;line-height:1.1;color:var(--cream);margin-top:10px}
+.sc .d{color:var(--gray);font-size:15.5px;max-width:64ch;margin-top:10px}
+.sc .k{font:500 11px/1 var(--f-sans);letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);margin-bottom:12px;display:block}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.cols{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:8px}
+.gets,.you{border-radius:14px;padding:18px 20px;min-width:0}
+.gets{background:var(--card3)}
+.gets ul{display:flex;flex-direction:column;gap:9px;font-size:14.5px;color:var(--primary)}
+.gets li{display:grid;grid-template-columns:16px minmax(0,1fr);gap:8px;line-height:1.4}
+.gets li::before{content:"";width:6px;height:10px;margin-top:2px;border:solid var(--primary);border-width:0 1.6px 1.6px 0;transform:rotate(40deg) scale(.9)}
+.you{border:1px dashed rgba(225,224,204,.25);font-size:14.5px;line-height:1.5}
+.you p{color:var(--primary)}
+.sc.opt{background:transparent;border:1px dashed rgba(225,224,204,.28)}
+.flow-end{display:flex;justify-content:center;margin-top:28px}
+@media(max-width:860px){.cols{grid-template-columns:1fr}}
+@media(max-width:560px){.stg{grid-template-columns:34px minmax(0,1fr);gap:10px}.rail .dot{width:34px;height:34px;font-size:13px}}
 
 /* FUNNEL */
 .fun-card{background:var(--card);border-radius:clamp(18px,2.4vw,32px);padding:clamp(28px,5vw,64px) clamp(18px,4vw,56px);display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)}
@@ -224,8 +234,8 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
     <div class="hero-grid">
       <h1 class="wordmark" aria-label="make ai"><span><b>make</b></span><span><b>ai<sup>*</sup></b></span></h1>
       <div class="hero-side">
-        <span class="tag">Автоматизація контенту.<br>Автоматизація SMM-частини вашого проєкту</span>
-        <p>Одна послуга: стратегія, контент щомісяця, дизайн-система у Figma, яка залишається у вас, і воронка, що вчиться на реальних заявках вашої аудиторії.</p>
+        <span class="tag">Автоматизація SMM-частини вашого проєкту</span>
+        <p>Одна послуга: стратегія, контент щомісяця, дизайн-система у Figma, яка залишається у вас і воронка, що вчиться на реальних заявках вашої аудиторії.</p>
         <a class="pill" href="https://t.me/your_username">Отримати розбір <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
       </div>
     </div>
@@ -235,27 +245,27 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 <section class="sec" id="about">
   <div class="in about-card">
     <span class="label">Про послугу</span>
-    <h2 class="h1x">Контент, дизайн і воронка в одній системі, <em class="s">яка щомісяця вчиться</em> на ваших клієнтах.</h2>
-    <p class="reveal" id="reveal">Зазвичай стратегію, дизайн, контент і налаштування бота продають окремо, тому вони не складаються в результат. Ми збираємо все в одну послугу. Кожна частина спирається на інші, дизайн-система лишається у вас, а воронка запам'ятовує, що саме приводить заявки, і підлаштовується під вашу аудиторію.</p>
+    <h2 class="h1x">Контент, дизайн і воронка в одній системі, <em class="s">яка щомісяця вчиться</em> на ваших клієнтах</h2>
+    <p class="reveal" id="reveal">Зазвичай стратегію, дизайн, контент і налаштування бота продають окремо, тому вони не складаються в результат. Ми збираємо все в одну послугу. Кожна частина спирається на інші, дизайн-система лишається у вас, а воронка запам'ятовує, що саме приводить заявки і підлаштовується під вашу аудиторію.</p>
   </div>
 </section>
 
 <section class="sec feat" id="inside">
   <div class="in">
     <div class="feat-head">
-      <h2 class="h2">Усе, що входить в одну послугу.</h2>
-      <h2 class="h2 g">Чотири частини, один щомісячний цикл.</h2>
+      <h2 class="h2">Усе, що входить в одну послугу</h2>
+      <h2 class="h2 g">Чотири частини, один щомісячний цикл</h2>
     </div>
 
     <div class="banner">
-      <h3>Ваша система контенту <em class="s">від стратегії до заявки</em>.</h3>
+      <h3>Ваша система контенту <em class="s">від стратегії до заявки</em></h3>
       <div class="cycle"><span>Стратегія</span><span>Контент</span><span>Кодове слово</span><span>Бот / Telegram</span><span>Заявка</span><span>База результатів</span><span>Корективи</span></div>
     </div>
 
     <div class="cards">
       <article class="fc">
         <span class="num">01</span>
-        <h3>Стратегія й рубрикатор.</h3>
+        <h3>Стратегія й рубрикатор</h3>
         <ul>
           <li>Аналіз акаунта й аудиторії</li>
           <li>Позиціонування й меседжі</li>
@@ -266,7 +276,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
       </article>
       <article class="fc">
         <span class="num">02</span>
-        <h3>Контент і лід-магніт.</h3>
+        <h3>Контент і лід-магніт</h3>
         <ul>
           <li>Каруселі: охопні, навчальні, продажні</li>
           <li>Reels зі сценарієм і монтажем</li>
@@ -277,7 +287,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
       </article>
       <article class="fc">
         <span class="num">03</span>
-        <h3>Дизайн-система у Figma.</h3>
+        <h3>Дизайн-система у Figma</h3>
         <ul>
           <li>Шаблони для кожного типу контенту</li>
           <li>Хедери, фони, палітра</li>
@@ -288,7 +298,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
       </article>
       <article class="fc">
         <span class="num">04</span>
-        <h3>Воронка, що вчиться.</h3>
+        <h3>Воронка, що вчиться</h3>
         <ul>
           <li>Кодове слово → бот або Telegram</li>
           <li>База результатів по темах і форматах</li>
@@ -302,116 +312,103 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 </section>
 
 <section class="sec" id="spec">
-  <div class="in spec">
-    <div class="spec-side">
+  <div class="in">
+    <div class="feat-head">
       <span class="label">Детально</span>
-      <h2 class="h2">Що саме ви отримуєте <em class="s">у послузі</em>.</h2>
-      <p>Усе, що входить у щомісячну роботу, розписано нижче. Обсяг контенту ми узгоджуємо під вашу нішу на розборі акаунта.</p>
-      <a class="pill" href="#price">Вартість <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
+      <h2 class="h2">Що саме ви отримуєте <em class="s">у послузі</em></h2>
+      <p style="color:var(--gray);max-width:60ch;font-size:16px">Контент створюється поетапно і ми працюємо так само: від стратегії до заявки, а потім по колу. Обсяг контенту узгоджуємо під вашу нішу на розборі акаунта.</p>
     </div>
-    <div class="rows">
-      <div class="row">
-        <span class="n">01</span>
-        <div>
-          <h3>Стратегія й рубрикатор</h3>
-          <p class="d">Визначаємо, кому й що говоримо, і розкладаємо це за рубриками. У кожної рубрики є своє завдання.</p>
-          <ul>
-            <li>Аналіз вашого акаунта</li><li>Огляд конкурентів у ніші</li>
-            <li>Портрет аудиторії та її питання</li><li>Позиціонування й ключові меседжі</li>
-            <li>Рубрикатор: охоплення, навчання, прогрів, продаж</li><li>Контент-план на місяць</li>
-          </ul>
-          <p class="out"><b>На виході:</b> зрозуміла структура акаунта, де кожен допис має мету.</p>
+    <div class="flow">
+      <div class="stg">
+        <div class="rail"><span class="dot">1</span></div>
+        <div class="sc">
+          <div><span class="ph">Основа</span><h3>Стратегія й рубрикатор</h3><p class="d">Починаємо з розуміння, кому й що ви говорите. Без цього контент виходить красивим, але не продає.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Розбір вашого акаунта: шапка, оформлення, останні дописи</li><li>Огляд конкурентів у ніші</li><li>Портрет аудиторії: болі, питання, заперечення</li><li>Позиціонування: чим ви відрізняєтесь</li><li>Ключові меседжі й тон спілкування</li><li>Рубрикатор: охоплення, навчання, прогрів, продаж</li><li>Контент-план на місяць</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>Стратегія: для кого ви, що говорите і чим вирізняєтесь</li><li>Рубрикатор, де у кожної рубрики є мета й частота</li><li>Контент-план: тема, формат і мета кожного допису</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Короткий бриф про послугу, приклади ваших клієнтів і доступ до акаунта.</p></div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <span class="n">02</span>
-        <div>
-          <h3>Контент щомісяця</h3>
-          <p class="d">Робимо й публікуємо контент у єдиній дизайн-системі. Ви не чекаєте, поки з'явиться час.</p>
-          <ul>
-            <li>Каруселі: охопні, навчальні, продажні</li><li>Reels: сценарій, зйомка за вашими матеріалами, монтаж</li>
-            <li>Тексти до дописів</li><li>Оформлення в шаблонах дизайн-системи</li>
-            <li>Публікація за планом</li><li>Обсяг на місяць, узгоджений заздалегідь</li>
-          </ul>
-          <p class="out"><b>На виході:</b> регулярний контент, що виглядає як єдиний бренд.</p>
+      <div class="stg">
+        <div class="rail"><span class="dot">2</span></div>
+        <div class="sc">
+          <div><span class="ph">Виробництво</span><h3>Контент щомісяця</h3><p class="d">За планом із першого етапу робимо дописи й публікуємо їх. Вам не треба щоразу вигадувати, що викласти.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Каруселі: охопні, навчальні, продажні</li><li>Reels: сценарій і монтаж</li><li>Тексти й підписи до дописів</li><li>Оформлення дописів</li><li>Публікація в узгоджені дні</li><li>Правки до публікації</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>Узгоджений обсяг дописів на місяць</li><li>Кожна карусель з готовим текстом і дизайном</li><li>Кожен Reels зі сценарієм і монтажем</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Матеріали для Reels (відео чи фото) і швидке погодження плану.</p></div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <span class="n">03</span>
-        <div>
-          <h3>Лід-магніт</h3>
-          <p class="d">Корисний матеріал, який людина отримує в обмін на кодове слово. Це точка входу у воронку.</p>
-          <ul>
-            <li>Ідея під вашу аудиторію</li><li>Чек-лист, гайд або добірка</li>
-            <li>Оформлення в стилі бренду</li><li>Кодове слово та сценарій його використання</li>
-          </ul>
-          <p class="out"><b>На виході:</b> готовий матеріал, який приводить людей у діалог.</p>
+      <div class="stg">
+        <div class="rail"><span class="dot">3</span></div>
+        <div class="sc">
+          <div><span class="ph">Під контент</span><h3>Лід-магніт</h3><p class="d">Корисний матеріал, який людина забирає в обмін на кодове слово. Саме він переводить її з дописів у діалог.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Ідея під болі вашої аудиторії</li><li>Формат: чек-лист, гайд або добірка</li><li>Текст і оформлення в стилі бренду</li><li>Кодове слово й заклик у дописах</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>1 готовий лід-магніт</li><li>Кодове слово, яке запускає отримання матеріалу</li><li>Дописи, що ведуть до кодового слова</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Перевірка експертності: ви підтверджуєте, що в матеріалі все правильно.</p></div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <span class="n">04</span>
-        <div>
-          <h3>Дизайн-система у Figma</h3>
-          <p class="d">Невелика, але повна система оформлення для різних типів контенту. Передається вам файлами, і ви користуєтеся нею без нас.</p>
-          <ul>
-            <li>Шаблони каруселей: охопні, навчальні, продажні, з лід-магнітом</li><li>Хедери для кожного типу контенту</li>
-            <li>Фони</li><li>Кольорова палітра</li>
-            <li>Поєднання шрифтів</li><li>Коротка інструкція</li>
-          </ul>
-          <p class="out"><b>На виході:</b> Figma-файл, який залишається у вас назавжди.</p>
+      <div class="stg">
+        <div class="rail"><span class="dot">4</span></div>
+        <div class="sc">
+          <div><span class="ph">Під все це</span><h3>Дизайн-система у Figma</h3><p class="d">Невелика, але повна система оформлення для різних типів контенту. Вона передається вам і ви користуєтеся нею без нас.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Шаблони каруселей: охопні, навчальні, продажні, з лід-магнітом</li><li>Хедери для кожного типу контенту</li><li>Фони</li><li>Кольорова палітра</li><li>Поєднання шрифтів</li><li>Коротка інструкція</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>Figma-файл, який залишається у вас назавжди</li><li>Можливість робити контент самим або з будь-яким своїм фахівцем</li><li>Інструкція, як користуватися шаблонами</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Логотип і кольори, якщо вони є, та приклади стилю, який вам подобається.</p></div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <span class="n">05</span>
-        <div>
-          <h3>Воронка</h3>
-          <p class="d">Ведемо людину від дописа до розмови. Кодове слово запускає бота або переводить у Telegram.</p>
-          <ul>
-            <li>Структура воронки й сценарій повідомлень</li><li>Налаштування кодового слова</li>
-            <li>Бот або Telegram</li><li>Передача заявки вам</li>
-            <li>Ведення й підтримка</li><li>Тестування перед запуском</li>
-          </ul>
-          <p class="out"><b>На виході:</b> працююча воронка від допису до заявки.</p>
+      <div class="stg">
+        <div class="rail"><span class="dot">5</span></div>
+        <div class="sc">
+          <div><span class="ph">Шлях до заявки</span><h3>Воронка</h3><p class="d">Ведемо людину від допису до розмови. Кодове слово запускає бота або переводить у Telegram.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Структура воронки</li><li>Сценарій повідомлень</li><li>Налаштування кодового слова</li><li>Бот або Telegram</li><li>Передача заявки вам</li><li>Тест перед запуском</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>Працююча воронка від допису до заявки</li><li>Повідомлення, що віддають лід-магніт і ведуть до питання або запису</li><li>Ведення й підтримка воронки щомісяця</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Доступи до Instagram і Telegram та відповіді на заявки, що надходять.</p></div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <span class="n">06</span>
-        <div>
-          <h3>Самонавчання воронки</h3>
-          <p class="d">Кожен дотик із клієнтом і з послугою ми заносимо в базу. Наступний цикл будується на тому, що спрацювало у вашому випадку.</p>
-          <ul>
-            <li>Які теми дають кодове слово</li><li>Який формат приводить до розмови</li>
-            <li>Які формулювання оферу відповідають</li><li>Де людина випадає з воронки</li>
-            <li>Підлаштування контенту й повідомлень</li><li>Оновлення бази щомісяця</li>
-          </ul>
-          <p class="out"><b>На виході:</b> система, яка щомісяця точніше працює саме на вашу аудиторію.</p>
+      <div class="stg">
+        <div class="rail"><span class="dot">6</span></div>
+        <div class="sc">
+          <div><span class="ph">Те, що відрізняє нас</span><h3>Самонавчання воронки</h3><p class="d">Кожен дотик із клієнтом і з послугою ми заносимо в базу. Наступний цикл будується на тому, що спрацювало саме у вас.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Фіксуємо, які теми дають кодове слово</li><li>Фіксуємо, який формат приводить до розмови</li><li>Фіксуємо, які формулювання оферу отримують відповідь</li><li>Бачимо, де людина випадає з воронки</li><li>Підлаштовуємо контент і повідомлення</li><li>Оновлюємо базу щомісяця</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>База результатів, яка зростає з кожним місяцем</li><li>Контент і повідомлення, що враховують ваші дані</li><li>Менше того, що не працює, більше того, що приводить заявки</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Повідомляти, чим закінчилась заявка: продаж, відмова чи пауза. Так база вчиться на реальних результатах.</p></div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <span class="n">07</span>
-        <div>
-          <h3>Аналітика й звіт</h3>
-          <p class="d">Раз на місяць показуємо, що відбулося, і пояснюємо, що змінюємо далі.</p>
-          <ul>
-            <li>Звіт по контенту й воронці</li><li>Висновки з бази результатів</li>
-            <li>Корективи за цифрами</li><li>План на наступний місяць</li>
-          </ul>
-          <p class="out"><b>На виході:</b> зрозумілі цифри й конкретні рішення, а не набір метрик.</p>
+      <div class="stg">
+        <div class="rail"><span class="dot">7</span></div>
+        <div class="sc">
+          <div><span class="ph">Підсумок місяця</span><h3>Аналітика й звіт</h3><p class="d">Раз на місяць показуємо, що відбулося і пояснюємо, що змінюємо далі.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Збираємо цифри по контенту й воронці</li><li>Робимо висновки з бази результатів</li><li>Коригуємо контент і воронку за цифрами</li><li>Складаємо план на наступний місяць</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>Місячний звіт зрозумілою мовою</li><li>Список конкретних змін на наступний місяць</li><li>Рекомендації, що масштабувати, а що прибрати</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Коротка розмова після звіту, щоб погодити зміни.</p></div>
+          </div>
         </div>
       </div>
-      <div class="row">
-        <span class="n">08</span>
-        <div>
-          <h3>Таргет, за потреби</h3>
-          <p class="d">Якщо потрібні заявки швидше, підключаємо платний трафік. Налаштування й ведення робить наш партнер.</p>
-          <ul>
-            <li>Налаштування реклами</li><li>Ведення кампаній</li>
-            <li>Зв'язок із воронкою й аналітикою</li><li>Рекламний бюджет клієнта окремо</li>
-          </ul>
-          <p class="out"><b>На виході:</b> швидший приплив людей у воронку, яка вже вміє їх вести.</p>
+      <div class="stg">
+        <div class="rail"><span class="dot">8</span></div>
+        <div class="sc opt">
+          <div><span class="ph">За потреби</span><h3>Таргет</h3><p class="d">Якщо потрібні заявки швидше, підключаємо платний трафік. Налаштування й ведення робить наш партнер.</p></div>
+          <div><span class="k">Що ми робимо</span><ul class="chips"><li>Налаштування реклами</li><li>Ведення кампаній</li><li>Зв'язок реклами з воронкою й аналітикою</li></ul></div>
+          <div class="cols">
+            <div class="gets"><span class="k">Що ви отримуєте</span><ul><li>Швидший приплив людей у воронку, яка вже вміє їх вести</li><li>Рекламні цифри в тому ж звіті</li></ul></div>
+            <div class="you"><span class="k">Що потрібно від вас</span><p>Рекламний бюджет: його ви вносите окремо, напряму в рекламний кабінет.</p></div>
+          </div>
         </div>
       </div>
     </div>
+    <div class="flow-end"><a class="pill" href="#price">Вартість <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a></div>
   </div>
 </section>
 
@@ -419,7 +416,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
   <div class="in fun-card">
     <div class="fun-head">
       <span class="label">Воронка, що вчиться</span>
-      <h2 class="h2">Вона не просто налаштована, <em class="s">вона запам'ятовує, що спрацювало</em>.</h2>
+      <h2 class="h2">Вона не просто налаштована, <em class="s">вона запам'ятовує, що спрацювало</em></h2>
       <p>Звичайна воронка однаково відповідає всім і завжди. Тут кожен дотик із клієнтом і з послугою потрапляє в базу, а наступний цикл будується з її урахуванням.</p>
     </div>
 
@@ -464,7 +461,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
   <div class="in">
     <div class="feat-head">
       <span class="label">Як ми працюємо</span>
-      <h2 class="h2">Запуск за перші тижні, <em class="s">далі щомісячний цикл</em>.</h2>
+      <h2 class="h2">Запуск за перші тижні, <em class="s">далі щомісячний цикл</em></h2>
     </div>
     <div class="steps">
       <div class="st"><span class="t">Тиждень 1</span><h3>Розбір і стратегія</h3><p>Аналізуємо акаунт і аудиторію, збираємо рубрикатор і цілі.</p></div>
@@ -479,11 +476,11 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
   <div class="in">
     <div class="feat-head">
       <span class="label">Вартість</span>
-      <h2 class="h2">Одна послуга, одна ціна.</h2>
+      <h2 class="h2">Одна послуга, одна ціна</h2>
     </div>
     <div class="price">
       <div class="p-main">
-        <span class="label">make ai · автоматизація контенту</span>
+        <span class="label">make ai · автоматизація SMM-частини</span>
         <div class="amount">від $600<small>/ міс</small></div>
         <ul>
           <li>Стратегія й рубрикатор</li>
@@ -498,7 +495,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
         <a class="pill" href="https://t.me/your_username">Отримати розбір <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
       </div>
       <div class="p-side">
-        <h3>Точна сума залежить від обсягу контенту й ніші.</h3>
+        <h3>Точна сума залежить від обсягу контенту й ніші</h3>
         <ul>
           <li>Розбір акаунта<span>Безкоштовно й без зобов'язань.</span></li>
           <li>Таргет<span>Налаштування й ведення партнером, рекламний бюджет оплачується окремо.</span></li>
@@ -512,10 +509,10 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 
 <section class="sec" id="faq">
   <div class="in">
-    <div class="feat-head"><span class="label">Питання</span><h2 class="h2">Що зазвичай запитують.</h2></div>
+    <div class="feat-head"><span class="label">Питання</span><h2 class="h2">Що зазвичай запитують</h2></div>
     <div class="faq">
       <details><summary>Дизайн-система справді переходить до мене?</summary><p>Так. Ви отримуєте Figma-файл із шаблонами, хедерами, фонами, палітрою й шрифтами та коротку інструкцію. Користуватися можна без нас.</p></details>
-      <details><summary>Що означає «воронка вчиться»?</summary><p>Ми фіксуємо, які теми, формати й формулювання приводять до кодового слова, діалогу та заявки, і вносимо це в базу. Наступний контент і повідомлення воронки будуються з урахуванням цих даних. Це не разове налаштування, а цикл, що повторюється.</p></details>
+      <details><summary>Що означає «воронка вчиться»?</summary><p>Ми фіксуємо, які теми, формати й формулювання приводять до кодового слова, діалогу та заявки і вносимо це в базу. Наступний контент і повідомлення воронки будуються з урахуванням цих даних. Це не разове налаштування, а цикл, що повторюється.</p></details>
       <details><summary>Коли будуть перші результати?</summary><p>Запуск займає близько трьох тижнів. Перші висновки по воронці з'являються, коли накопичуються дані, зазвичай після першого місяця роботи. Точніше скажемо на розборі, бо це залежить від розміру акаунта й ніші.</p></details>
       <details><summary>Рекламний бюджет входить у ціну?</summary><p>Ні. Якщо підключаємо таргет, налаштування й ведення робить партнер, а бюджет на рекламу ви вносите окремо, напряму в рекламний кабінет.</p></details>
       <details><summary>Що я роблю зі свого боку?</summary><p>Даєте доступ до матеріалів, відповідаєте на питання про вашу послугу й передаєте заявки, що надходять із воронки, у роботу. Усе інше ми беремо на себе.</p></details>
@@ -526,14 +523,14 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 <section class="sec" style="padding-top:0">
   <div class="in final">
     <span class="label">Наступний крок</span>
-    <h2 class="h2">Покажемо, як виглядатиме система <em class="s">для вашого акаунта</em>.</h2>
+    <h2 class="h2">Покажемо, як виглядатиме система <em class="s">для вашого акаунта</em></h2>
     <p>Напишіть нам: подивимося ваш Instagram, запропонуємо рубрикатор і схему воронки та назвемо вартість.</p>
     <a class="pill" href="https://t.me/your_username">Написати в Telegram <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
   </div>
 </section>
 
 <footer>
-  <span>make ai · автоматизація контенту та SMM-частини вашого проєкту</span>
+  <span>make ai · автоматизація SMM-частини вашого проєкту</span>
   <span>Telegram: @your_username</span>
 </footer>
 
