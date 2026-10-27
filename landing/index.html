@@ -235,35 +235,14 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing
 .final p{max-width:48ch;color:rgba(222,219,200,.8)}
 footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px;justify-content:space-between;font-size:13px;color:var(--gray2);max-width:1240px;margin-inline:auto}
 
-/* LIGHT SURFACES + GLOWS: менше суцільного чорного */
+/* GRADIENT SURFACES + GLOWS: менше суцільного чорного, без світлих заливок */
 .sub{color:var(--gray);max-width:60ch;font-size:16px}
-.cream{background:var(--cream);color:#000;border-radius:clamp(18px,2.4vw,32px);padding:clamp(22px,5vw,72px)}
-.cream .label{color:rgba(0,0,0,.6)}
-.cream .h2{color:#000}
-.cream .sub{color:#47463c}
-.cream .rail .dot{background:#000;color:var(--cream)}
-.cream .rail::after{background:rgba(0,0,0,.25)}
-.cream .sc{background:#F4F2E6}
-.cream .sc .ph,.cream .sc .k{color:#6b6a5e}
-.cream .sc h3{color:#000}
-.cream .sc .d{color:#47463c}
-.cream .chips li{background:rgba(0,0,0,.045);border-color:rgba(0,0,0,.14);color:#000;backdrop-filter:none;-webkit-backdrop-filter:none}
-.cream .gets{background:#101010}
-.cream .gets .k{color:var(--gray)}
-.cream .you{border-color:rgba(0,0,0,.3)}
-.cream .you .k{color:#6b6a5e}
-.cream .you p{color:#000}
-.cream .budget{background:rgba(0,0,0,.06);border-color:rgba(0,0,0,.4);color:#000}
-.cream .budget svg,.cream .budget b{color:#000}
-.cream .pill{background:#000;color:var(--cream)}
-.cream .pill i{background:var(--cream);color:#000}
-.pn{background:var(--cream)}
-.pn q{color:#000}
-.pn .if{border-top-color:rgba(0,0,0,.18)}
-.pn .if b{color:#6b6a5e}
-.pn .if p{color:#000;font-size:17px;font-weight:500;line-height:1.35}
-.pn .fix{font:500 12px/1 var(--f-sans);color:#47463c;display:inline-flex;align-items:center;gap:8px}
-.pn .fix::before{content:"";width:6px;height:10px;border:solid #000;border-width:0 1.6px 1.6px 0;transform:rotate(40deg) scale(.9);margin-bottom:3px}
+.gpanel{border-radius:clamp(18px,2.4vw,32px);padding:clamp(18px,4vw,56px);background-color:#14100d;background-image:radial-gradient(60% 38% at 100% 8%,rgba(236,170,104,.26),transparent 65%),radial-gradient(55% 38% at 0% 62%,rgba(170,80,62,.3),transparent 65%);background-size:100% 1100px;background-repeat:repeat-y}
+.gpanel .sc{background:rgba(10,8,7,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.pn{background:radial-gradient(90% 60% at 100% 0%,rgba(236,170,104,.2),transparent 62%),radial-gradient(70% 50% at 0% 100%,rgba(150,70,58,.22),transparent 65%),#13100d}
+.pn .fix{font:500 12px/1 var(--f-sans);color:var(--gray);display:inline-flex;align-items:center;gap:8px}
+.pn .fix::before{content:"";width:6px;height:10px;border:solid var(--cream);border-width:0 1.6px 1.6px 0;transform:rotate(40deg) scale(.9);margin-bottom:3px}
+.pn .if p{font-size:17px;font-weight:500;line-height:1.35}
 .about-card{background:radial-gradient(55% 60% at 100% 0%,rgba(236,170,104,.16),transparent 65%),radial-gradient(45% 55% at 0% 100%,rgba(150,70,58,.2),transparent 65%),#12100e}
 .fun-card{background:radial-gradient(55% 70% at 95% 0%,rgba(236,170,104,.24),transparent 62%),radial-gradient(50% 70% at 0% 100%,rgba(150,70,58,.28),transparent 65%),#15110e}
 #pains,#inside,#process,#price,#faq{position:relative;isolation:isolate}
@@ -430,7 +409,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 </section>
 
 <section class="sec" id="spec">
-  <div class="in cream">
+  <div class="in gpanel">
     <div class="feat-head">
       <span class="label">Детально</span>
       <h2 class="h2">Що саме ви отримуєте <em class="s">у послузі</em></h2>
