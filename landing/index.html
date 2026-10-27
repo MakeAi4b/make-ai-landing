@@ -237,7 +237,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 
 /* GRADIENT SURFACES + GLOWS: менше суцільного чорного, без світлих заливок */
 .sub{color:var(--gray);max-width:60ch;font-size:16px}
-.gpanel{border-radius:clamp(18px,2.4vw,32px);padding:clamp(18px,4vw,56px);background-color:#14100d;background-image:radial-gradient(60% 38% at 100% 8%,rgba(236,170,104,.26),transparent 65%),radial-gradient(55% 38% at 0% 62%,rgba(170,80,62,.3),transparent 65%);background-size:100% 1100px;background-repeat:repeat-y}
+.gpanel{border-radius:clamp(18px,2.4vw,32px);padding:clamp(18px,4vw,56px);background-color:#14100d;background-image:radial-gradient(ellipse 700px 520px at 100% 560px,rgba(236,170,104,.26),transparent),radial-gradient(ellipse 650px 300px at 0% 900px,rgba(170,80,62,.3),transparent);background-size:100% 1200px;background-repeat:repeat-y}
 .gpanel .sc{background:rgba(10,8,7,.62);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
 .pn{background:radial-gradient(90% 60% at 100% 0%,rgba(236,170,104,.2),transparent 62%),radial-gradient(70% 50% at 0% 100%,rgba(150,70,58,.22),transparent 65%),#13100d}
 .pn .fix{font:500 12px/1 var(--f-sans);color:var(--gray);display:inline-flex;align-items:center;gap:8px}
@@ -247,12 +247,11 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 .fun-card{background:radial-gradient(55% 70% at 95% 0%,rgba(236,170,104,.24),transparent 62%),radial-gradient(50% 70% at 0% 100%,rgba(150,70,58,.28),transparent 65%),#15110e}
 #pains,#inside,#process,#price,#faq{position:relative;isolation:isolate}
 #pains::before,#inside::before,#process::before,#price::before,#faq::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
-#pains::before{background:radial-gradient(50% 30% at 8% 12%,rgba(236,170,104,.16),transparent 70%),radial-gradient(45% 30% at 95% 85%,rgba(150,70,58,.2),transparent 70%)}
-#inside::before{background:radial-gradient(45% 25% at 95% 10%,rgba(236,170,104,.14),transparent 70%),radial-gradient(40% 25% at 0% 90%,rgba(150,70,58,.16),transparent 70%)}
-#process::before{background:radial-gradient(50% 50% at 50% 100%,rgba(236,170,104,.16),transparent 70%)}
-#price::before{background:radial-gradient(50% 40% at 90% 20%,rgba(236,170,104,.16),transparent 70%),radial-gradient(40% 40% at 0% 80%,rgba(150,70,58,.18),transparent 70%)}
-#faq::before{background:radial-gradient(45% 40% at 10% 30%,rgba(236,170,104,.12),transparent 70%)}
-
+#pains::before{background:radial-gradient(ellipse 50% 22% at 8% 26%,rgba(236,170,104,0.16),transparent),radial-gradient(ellipse 45% 20% at 96% 74%,rgba(160,76,58,0.22),transparent)}
+#inside::before{background:radial-gradient(ellipse 45% 18% at 96% 24%,rgba(236,170,104,0.14),transparent),radial-gradient(ellipse 40% 18% at 0% 78%,rgba(160,76,58,0.18),transparent)}
+#process::before{background:radial-gradient(ellipse 55% 40% at 50% 55%,rgba(236,170,104,0.14),transparent)}
+#price::before{background:radial-gradient(ellipse 50% 28% at 92% 36%,rgba(236,170,104,0.16),transparent),radial-gradient(ellipse 42% 25% at 0% 70%,rgba(160,76,58,0.2),transparent)}
+#faq::before{background:radial-gradient(ellipse 45% 30% at 8% 50%,rgba(236,170,104,0.12),transparent)}
 @media(max-width:560px){.chips li{border-radius:14px;padding:10px 14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-bg,.banner::before,.final::before{animation:none}.wordmark b,.hero-side{animation:none}.pill,.pill i{transition:none}}
 </style>
