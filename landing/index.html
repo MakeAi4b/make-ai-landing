@@ -89,10 +89,10 @@ em.s{font-family:var(--f-serif);font-style:italic;font-weight:500;letter-spacing
 .feat{position:relative}
 .feat-head{display:flex;flex-direction:column;gap:6px;margin-bottom:clamp(28px,5vw,56px);max-width:900px}
 .feat-head .h2{font-size:clamp(22px,3vw,40px)}
-.banner{position:relative;border-radius:16px;overflow:hidden;padding:clamp(24px,4vw,44px);margin-bottom:8px;display:flex;flex-direction:column;gap:22px;min-height:230px;justify-content:flex-end;isolation:isolate;background:#14100d}
+.banner{position:relative;border-radius:16px;overflow:hidden;padding:clamp(24px,4vw,44px);margin-bottom:8px;display:flex;flex-direction:column;gap:22px;min-height:260px;justify-content:center;align-items:center;text-align:center;isolation:isolate;background:#14100d}
 .banner::before{content:"";position:absolute;inset:-20%;z-index:-1;background:radial-gradient(50% 70% at 85% 20%,rgba(236,170,104,.5),transparent 65%),radial-gradient(40% 60% at 10% 100%,rgba(140,70,60,.5),transparent 65%);animation:drift 18s ease-in-out infinite alternate}
-.banner h3{font-weight:400;font-size:clamp(24px,3.2vw,40px);letter-spacing:-.03em;line-height:1.05;color:var(--cream);max-width:18em}
-.cycle{display:flex;flex-wrap:wrap;gap:8px}
+.banner h3{font-weight:400;font-size:clamp(24px,3.2vw,40px);letter-spacing:-.03em;line-height:1.05;color:var(--cream);max-width:18em;margin-inline:auto}
+.cycle{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
 .cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
 .fc{background:var(--card3);border-radius:16px;padding:26px 22px;display:flex;flex-direction:column;gap:18px;min-width:0}
 .fc .num{font:500 12px/1 var(--f-sans);color:var(--gray);letter-spacing:.1em}
@@ -224,7 +224,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
     <div class="hero-grid">
       <h1 class="wordmark" aria-label="make ai"><span><b>make</b></span><span><b>ai<sup>*</sup></b></span></h1>
       <div class="hero-side">
-        <span class="tag">Система контенту для Instagram</span>
+        <span class="tag">Автоматизація контенту.<br>Автоматизація SMM-частини вашого проєкту</span>
         <p>Одна послуга: стратегія, контент щомісяця, дизайн-система у Figma, яка залишається у вас, і воронка, що вчиться на реальних заявках вашої аудиторії.</p>
         <a class="pill" href="https://t.me/your_username">Отримати розбір <i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></i></a>
       </div>
@@ -483,7 +483,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
     </div>
     <div class="price">
       <div class="p-main">
-        <span class="label">make ai · система контенту</span>
+        <span class="label">make ai · автоматизація контенту</span>
         <div class="amount">від $600<small>/ міс</small></div>
         <ul>
           <li>Стратегія й рубрикатор</li>
@@ -533,7 +533,7 @@ footer{padding:28px var(--gutter) 40px;display:flex;flex-wrap:wrap;gap:10px 32px
 </section>
 
 <footer>
-  <span>make ai · система контенту для Instagram</span>
+  <span>make ai · автоматизація контенту та SMM-частини вашого проєкту</span>
   <span>Telegram: @your_username</span>
 </footer>
 
